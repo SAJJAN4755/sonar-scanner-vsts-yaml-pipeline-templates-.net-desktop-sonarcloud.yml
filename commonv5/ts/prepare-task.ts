@@ -68,6 +68,7 @@ async function branchFeatureSupported(endpoint) {
 export async function populateBranchAndPrProps(props: { [key: string]: string }) {
   const collectionUrl = tl.getVariable("System.TeamFoundationCollectionUri");
   const prId = tl.getVariable("System.PullRequest.PullRequestId");
+  tl.debug("PR id : " + prId)
   const provider = tl.getVariable("Build.Repository.Provider");
   if (prId) {
     props["sonar.pullrequest.key"] = prId;

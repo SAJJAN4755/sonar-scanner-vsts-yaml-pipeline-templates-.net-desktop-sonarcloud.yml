@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
-const crypto = require('crypto');
-const path = require('path');
-const { execSync } = require('child_process');
-const fs = require('fs-extra');
-const dateformat = require('dateformat');
-const globby = require('globby');
-const sonarqubeScanner = require('sonarqube-scanner');
-const { paths, resolveApp } = require('./paths');
+import crypto from 'crypto'
+import path from 'path'
+import execSync from 'child_process'
+import fs from 'fs-extra'
+import dateformat from 'dateformat';
+import globby from globby
+import sonarqubeScanner from sonarqube-scanner
+import { paths, resolveApp } from './paths'
 
 function fail(message) {
   console.error('ERROR: ' + message);

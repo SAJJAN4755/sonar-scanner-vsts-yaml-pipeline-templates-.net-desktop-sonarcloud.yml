@@ -1,30 +1,30 @@
-const path = require('path');
-const fs = require('fs-extra');
-const request = require('request');
-const yargs = require('yargs');
-const artifactoryUpload = require('gulp-artifactory-upload');
-const decompress = require('gulp-decompress');
-const download = require('gulp-download');
-const gulp = require('gulp');
-const gulpDel = require('del');
-const gulpRename = require('gulp-rename');
-const gulpReplace = require('gulp-replace');
-const gulpTs = require('gulp-typescript');
-const gutil = require('gulp-util');
-const globby = require('globby');
-const jeditor = require('gulp-json-editor');
-const es = require('event-stream');
-const mergeStream = require('merge-stream');
-const typescript = require('typescript');
-const exec = require('gulp-exec');
-const map = require('map-stream')
-const Vinyl = require('vinyl');
-const collect = require("gulp-collect");
-const del = require('del');
-const aside = require('gulp-aside');
-const needle = require('needle');
-const { paths, pathAllFiles } = require('./config/paths');
-const {
+import path from 'path';
+import fs from 'fs-extra';
+import request from 'request';
+import yargs from 'yargs';
+import artifactoryUpload from 'gulp-artifactory-upload';
+import decompress from 'gulp-decompress';
+import download from 'gulp-download';
+import gulp from 'gulp';
+import gulpDel from 'del';
+import gulpRename from 'gulp-rename';
+import gulpReplace from 'gulp-replace';
+import gulpTs from 'gulp-typescript';
+import gutil from 'gulp-util';
+import globby from 'globby';
+import jeditor from 'gulp-json-editor';
+import es from 'event-stream';
+import mergeStream from 'merge-stream';
+import typescript from 'typescript';
+import exec from 'gulp-exec';
+import map from 'map-stream'
+import Vinyl from 'vinyl';
+import collect from 'gulp-collect';
+import del from 'del';
+import aside from 'gulp-aside';
+import needle from 'needle';
+import { paths, pathAllFiles } from './config/paths';
+import {
   fileHashsum,
   fullVersion,
   getBuildInfo,
@@ -32,11 +32,11 @@ const {
   runSonnarQubeScanner,
   runSonnarQubeScannerForSonarCloud,
   tfxCommand
-} = require('./config/utils');
-const { scanner } = require('./config/config');
-const { addSignature, getSignature } = require('./config/gulp-sign.js');
-const packageJSON = require('./package.json');
-const { string } = require('yargs');
+} from './config/utils';
+import { scanner } from './config/config';
+import { addSignature, getSignature } from './config/gulp-sign.js';
+import packageJSON from './package.json';
+import { string } from 'yargs';
 
 function copyIconsTask(icon = 'task_icon.png') {
   return () =>

@@ -1,8 +1,8 @@
-const openpgp = require('openpgp');
-const through = require('through2');
-const Vinyl = require('vinyl')
-const Stream = require('stream');
-const path = require('path');
+import openpgp from 'openpgp';
+import through from 'through2';
+import Vinyl from 'vinyl';
+import Stream from 'stream';
+import path from 'path';
 
 exports.getSignature = (opts = {}) => {
     return through.obj(getTransform(opts, false))
